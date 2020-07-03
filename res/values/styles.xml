@@ -46,4 +46,17 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay.SettingsBase">
+        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.CategoryTitle
+        </item>
+        <item name="preferenceCategoryStyle">@style/Preference.Bliss.Category</item>
+    </style>
+
+    <style name="Preference.Bliss.Category" parent="@style/Preference.Category">
+        <item name="android:layout">@layout/bliss_preference_category_material</item>
+        <item name="android:selectable">false</item>
+        <item name="allowDividerBelow">false</item>
+        <item name="android:shouldDisableView">false</item>
+    </style>
+
 </resources>

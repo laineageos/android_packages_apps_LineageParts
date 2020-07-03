@@ -29,9 +29,11 @@
     <dimen name="trust_logo_horizontal_margin">40dp</dimen>
     <dimen name="trust_logo_height">-2px</dimen>
     <dimen name="trust_logo_width">-1px</dimen>
-
     <dimen name="package_list_padding_top">16dp</dimen>
-
     <dimen name="color_mode_preview_height">320dp</dimen>
+    <dimen name="bliss_preference_category_padding_top">0.0dip</dimen>
+    <dimen name="bliss_preference_category_line_margin_start">10.0dip</dimen>
+    <dimen name="bliss_preference_category_height">40.0dip</dimen>
+
 </resources>
 
