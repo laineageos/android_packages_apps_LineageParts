@@ -110,6 +110,13 @@
             android:dependency="qs_show_brightness_slider"
             lineage:requiresConfig="@*android:bool/config_automatic_brightness_available"
             android:defaultValue="true" />
+
+        <lineageos.preference.SystemSettingSwitchPreference
+            android:key="data_disabled_icon"
+            android:title="@string/data_disabled_icon_title"
+            android:summary="@string/data_disabled_icon_summary"
+            android:defaultValue="true"/>
+            
     </PreferenceCategory>
 
 </PreferenceScreen>
