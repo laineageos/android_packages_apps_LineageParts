@@ -31,12 +31,14 @@ public class DisplayRotation extends SettingsPreferenceFragment
     private static final String ROTATION_90_PREF = "display_rotation_90";
     private static final String ROTATION_180_PREF = "display_rotation_180";
     private static final String ROTATION_270_PREF = "display_rotation_270";
+    private static final String LOCKSCREEN_ROTATION_PREF = "lockscreen_rotation";
 
     private MainSwitchPreference mAccelerometer;
     private CheckBoxPreference mRotation0Pref;
     private CheckBoxPreference mRotation90Pref;
     private CheckBoxPreference mRotation180Pref;
     private CheckBoxPreference mRotation270Pref;
+    private Preference mLockscreenRotationPref;
 
     public static final int ROTATION_0_MODE = 1;
     public static final int ROTATION_90_MODE = 2;
@@ -59,6 +61,7 @@ public class DisplayRotation extends SettingsPreferenceFragment
         mRotation90Pref = prefSet.findPreference(ROTATION_90_PREF);
         mRotation180Pref = prefSet.findPreference(ROTATION_180_PREF);
         mRotation270Pref = prefSet.findPreference(ROTATION_270_PREF);
+        mLockscreenRotationPref = prefSet.findPreference(LOCKSCREEN_ROTATION_PREF);
 
         int mode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION_ANGLES,
@@ -70,6 +73,13 @@ public class DisplayRotation extends SettingsPreferenceFragment
         mRotation270Pref.setChecked((mode & ROTATION_270_MODE) != 0);
 
         watch(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION));
+        
+        boolean lockscreenRotationEnabled = getResources().getBoolean(
+                com.android.internal.R.bool.config_enableLockScreenRotation);
+
+        if (!lockscreenRotationEnabled) {
+            prefSet.removePreference(mLockscreenRotationPref);
+        }
     }
 
     @Override
