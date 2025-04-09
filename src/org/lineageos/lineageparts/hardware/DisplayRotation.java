@@ -6,6 +6,8 @@
 
 package org.lineageos.lineageparts.hardware;
 
+import static com.android.systemui.shared.recents.utilities.Utilities.isLargeScreen;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -73,11 +75,8 @@ public class DisplayRotation extends SettingsPreferenceFragment
         mRotation270Pref.setChecked((mode & ROTATION_270_MODE) != 0);
 
         watch(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION));
-        
-        boolean lockscreenRotationEnabled = getResources().getBoolean(
-                com.android.internal.R.bool.config_enableLockScreenRotation);
 
-        if (!lockscreenRotationEnabled) {
+        if (!isLargeScreen(getContext())) {
             prefSet.removePreference(mLockscreenRotationPref);
         }
     }
